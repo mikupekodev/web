@@ -165,12 +165,8 @@ function showProjects(status) {
 // ======
 
 function main() {
-  console.log(getJsonS("projects.json", 1));
-  console.log(getJsonS("projects.json", 2));
-  console.log(getJsonS("projects.json", 3));
-  console.log(getJsonS("projects.json", 4));
 
-  const project = getJsonI("projects.json", 0);
+  const project = getJsonI("projects/projects.json", 0);
 
   console.log(project.title);
   console.log(project.progress);
@@ -187,7 +183,7 @@ function main() {
 }
 
 // JSON読み込み開始
-loadJson("projects.json");
+loadJson("projects/projects.json");
 document.querySelectorAll(".project-tabs button").forEach((button) => {
   button.addEventListener("click", () => {
     const status = button.dataset.status;
