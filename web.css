@@ -1,0 +1,389 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #191c29;
+  color: #fff;
+}
+
+/* ====================
+   Message
+==================== */
+
+.message {
+  min-height: 70vh;
+
+  display: grid;
+  place-items: center;
+}
+
+/* ====================
+   Header Trigger
+==================== */
+
+/*
+ * 固定判定専用。
+ * 見えないのでユーザーには見えない。
+ */
+.header-trigger {
+  height: 80px;
+}
+
+/* ====================
+   Header
+==================== */
+
+.header-wrap {
+  height: 80px;
+}
+
+.header {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.header.fix {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  z-index: 1000;
+
+  background: rgba(255, 255, 255, 0.3);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  color: #111;
+}
+
+/* ====================
+   Navigation
+==================== */
+
+.header nav {
+  display: flex;
+  gap: 32px;
+  margin-left: auto;
+}
+
+.header a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ====================
+   Content
+==================== */
+
+section {
+  min-height: 100vh;
+  padding: 120px 8vw;
+  scroll-margin-top: 80px;
+}
+
+/* ====================
+   card
+==================== */
+/* ====================
+
+
+#212534;
+#5ddcff
+#3c67e3
+#4e00c2
+#191c29
+==================== */
+#project-template {
+  display: none;
+}
+.project-list {
+  display: flex;
+  gap: 20px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  padding: 20px;
+
+  scroll-behavior: smooth;
+}
+.project-card {
+  flex: 0 0 220px;
+  height: 340px;
+
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 24px;
+
+  background: rgba(255, 255, 255, 0.75);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  padding: 25px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+
+  cursor: pointer;
+
+  /* 内側の白い線 */
+  border: 2px solid transparent;
+
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.75), rgba(41, 40, 40, 0.75)) padding-box,
+    linear-gradient(135deg, #5ddcff, #3c67e3, #4e00c2, #5ddcff) border-box;
+}
+.project-card h4 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* 進捗率 */
+.project-card .progress {
+  margin-top: auto;
+
+  font-size: 32px;
+  font-weight: 600;
+}
+
+/* やっていること */
+.project-card .text {
+  margin-top: 12px;
+
+  font-size: 14px;
+  line-height: 1.6;
+
+  color: #555;
+}
+
+/* 下から出てくるレイヤー */
+.project-card::after {
+  content: "詳しく見る";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(255, 254, 254, 0.52);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 18px;
+  font-weight: 600;
+  color: #222;
+
+  transform: translateY(100%);
+
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-card:hover::after {
+  transform: translateY(0);
+}
+
+/*
+アカウントリンク
+
+*/
+.c1 {
+  --color: #000;
+}
+.c2 {
+  --color: #ff0033;
+}
+.c3 {
+  --color: #55c500;
+}
+.c4 {
+  --color: #5865f2;
+}
+.c5 {
+  --color: #f9a83a;
+}
+.c6 {
+  --color: #24292e;
+}
+.c7 {
+  --color: #dc483c;
+}
+.c8 {
+  --color: #fff;
+}
+* {
+  box-sizing: border-box;
+}
+:root {
+  --size: 150px;
+  --depth: 150px;
+  --gap: 45px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, var(--size));
+  gap: var(--gap);
+  perspective: 1200px;
+}
+.link {
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+}
+.scene {
+  width: 100%;
+  height: 100%;
+  perspective: 900px;
+  pointer-events: none;
+  overflow: visible;
+}
+.cube {
+  pointer-events: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.link:hover .cube,
+.link:focus-visible .cube {
+  transform: rotateY(-90deg);
+}
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* 面の色 */
+  background: 0x000;
+
+  /* キューブの縁 */
+  border: 3px solid var(--color);
+
+  border-radius: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.13);
+}
+/* 正面 */
+.front {
+  transform: translateZ(calc(var(--depth) / 2));
+}
+.front img {
+  width: 62%;
+  height: 62%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 7px rgba(0, 0, 0, 0.18));
+  pointer-events: none;
+}
+/* 右側面。キューブを90度回すと正面に来る */
+.right {
+  transform: rotateY(90deg) translateZ(calc(var(--depth) / 2));
+  flex-direction: column;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+}
+.right strong {
+  font-size: 20px;
+  line-height: 1.2;
+}
+.right span {
+  font-size: 13px;
+  margin-top: 7px;
+  opacity: 0.9;
+}
+/* 残り4面 */
+.back {
+  transform: rotateY(180deg) translateZ(calc(var(--depth) / 2));
+}
+.left {
+  transform: rotateY(-90deg) translateZ(calc(var(--depth) / 2));
+}
+.top {
+  transform: rotateX(90deg) translateZ(calc(var(--depth) / 2));
+}
+.bottom {
+  transform: rotateX(-90deg) translateZ(calc(var(--depth) / 2));
+}
+
+/* 16色 */
+
+@media (max-width: 850px) {
+  :root {
+    --size: 115px;
+    --depth: 115px;
+    --gap: 28px;
+  }
+  .right strong {
+    font-size: 16px;
+  }
+  .right span {
+    font-size: 11px;
+  }
+}
+@media (max-width: 600px) {
+  :root {
+    --size: 20vw;
+    --depth: 20vw;
+    --gap: 4vw;
+  }
+  .right {
+    padding: 7px;
+  }
+  .right strong {
+    font-size: clamp(9px, 2.8vw, 15px);
+  }
+  .right span {
+    font-size: clamp(7px, 2.1vw, 11px);
+  }
+}
+
+.project-tabs button {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+.project-tabs button:hover {
+  background: #eee;
+}
+
+.project-tabs button.active-tab {
+  background: #333;
+  color: #fff;
+  border-color: #333;
+}
